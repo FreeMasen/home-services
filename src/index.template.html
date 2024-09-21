@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home Services</title>
+    <link rel="icon" href="/assets/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A list of services hosted on the local network" />
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    <style>
+        main ul {
+            list-style: none;
+        }
+
+        .service-entry {
+            display: grid;
+            grid-template-rows: 1fr fit-content;
+            grid-template-columns: 100%;
+            grid-template-areas: "url" "desc";
+            cursor: pointer;
+        }
+
+        .service-entry h2 {
+            grid-area: url
+        }
+
+        .service-entry span {
+            grid-area: desc;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    window.goto = (url) => location = url;
+</script>
+<body>
+    <header>
+        <h1>Home Services</h1>
+    </header>
+    <main>
+        <ul>
+            {{services-list}}
+        </ul>
+    </main>
+    <script type="module" src="/assets/index.js"></script>
+    
+</body>
+
+</html>

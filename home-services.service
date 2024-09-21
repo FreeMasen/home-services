@@ -1,0 +1,28 @@
+[Unit]
+Description=Home Services
+ConditionPathExists=/usr/bin/home-services
+After=network.target
+ 
+[Service]
+Type=simple
+User=homeservices
+Group=homeservices
+LimitNOFILE=1024
+
+Restart=on-failure
+RestartSec=10
+
+WorkingDirectory=/usr/share/home-services/
+ExecStart=/usr/bin/home-services
+
+# make sure log directory exists and owned by syslog
+PermissionsStartOnly=true
+ExecStartPre=/bin/mkdir -p /var/log/home-services
+ExecStartPre=/bin/chown syslog:adm /var/log/home-services
+ExecStartPre=/bin/chmod 755 /var/log/home-services
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=home-services
+ 
+[Install]
+WantedBy=multi-user.target

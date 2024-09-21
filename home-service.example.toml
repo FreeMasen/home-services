@@ -1,0 +1,5 @@
+# Once file per service in the configuration directory
+name = "Service Name"
+desc = "A description of what the service does"
+# Either a port on this host or a .lan or .local url if you're fancy
+url = "http://localhost:8080"
